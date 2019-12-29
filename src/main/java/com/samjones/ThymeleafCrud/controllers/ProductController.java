@@ -4,9 +4,8 @@ import com.samjones.ThymeleafCrud.model.Product;
 import com.samjones.ThymeleafCrud.services.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -37,6 +36,23 @@ public class ProductController {
     public String saveProduct(@ModelAttribute("product") Product p){
         service.save(p);
 
+        return "redirect:/";
+    }
+
+    @GetMapping("/edit/{id}")
+    public ModelAndView editProduct(@PathVariable("id") Long id){
+        ModelAndView mav = new ModelAndView("editproduct");
+        Product p = service.get(id);
+        mav.addObject("product", p);
+
+//        service.save(p);
+
+        return mav;
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteProduct(@PathVariable("id") Long id){
+        service.delete(id);
         return "redirect:/";
     }
 

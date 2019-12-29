@@ -10,11 +10,12 @@
 <body>
 <div th:replace="fragments/topnav :: navbar"></div>
 <div class="container" align="center">
-<a href="/new">
-    Create product
-</a>
-    <div class="jumbotron"> Jum</div>
-<table class="table">
+
+    <div class="jumbotron"> Embrace the CRUD </div>
+    <a href="/new">
+        Create product
+    </a>
+    <table class="table">
     <thead>
         <th> Name </th>
         <th> Brand </th>
@@ -25,6 +26,12 @@
         <td th:text="${product.name}"></td>
         <td th:text="${product.brand}"></td>
         <td th:text="${product.price}"></td>
+        <td>
+            <a th:href="@{'/edit/' + ${product.id}}">Edit </a>
+            <br>
+            <a th:href="@{'/delete/' + ${product.id}}">Delete</a>
+
+        </td>
     </tr>
 </table>
 </div>
