@@ -16,11 +16,16 @@
 
         <label for="name"> Name </label>
         <input class="form-control" type="text" th:field="*{name}">
+           <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger">Name</div>
         <label  for="brand"> Brand </label>
         <input class="form-control" type="text" th:field="*{brand}">
-        <label for="price"> Price  </label>
+           <div th:if="${#fields.hasErrors('brand')}" th:errors="*{brand}" class="text-danger">Name</div>
+
+           <label for="price"> Price  </label>
         <input class="form-control" type="number" th:field="*{price}">
-        <input class="btn btn-primary" type="submit">
+           <div th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="text-danger">Name</div>
+
+           <input class="btn btn-primary" type="submit">
        </div>
 
 

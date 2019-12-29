@@ -4,9 +4,11 @@ import com.samjones.ThymeleafCrud.model.Product;
 import com.samjones.ThymeleafCrud.services.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -33,7 +35,10 @@ public class ProductController {
     }
 
         @PostMapping("/save")
-    public String saveProduct(@ModelAttribute("product") Product p){
+    public String saveProduct(@Valid @ModelAttribute("product") Product p, BindingResult result){
+        if(result.hasErrors()){
+            return "createproduct";
+        }
         service.save(p);
 
         return "redirect:/";

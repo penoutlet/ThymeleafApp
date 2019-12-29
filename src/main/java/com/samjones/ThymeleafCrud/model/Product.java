@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Product {
@@ -11,9 +13,13 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank(message="Name cannot be blank.")
     private String name;
+    @NotBlank(message="Brand cannot be blank.")
     private String brand;
+    @NotNull(message="Price cannot be blank.")
     private Float price;
+
 
     public Product() {
     }
