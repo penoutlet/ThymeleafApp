@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Product</title>
+    <div th:replace="fragments/bootstrap"></div>
+    <script th:src="@{/js/script.js}"> </script>
+</head>
+<body>
+<div th:replace="fragments/topnav :: navbar"></div>
+<div align="center">
+    <h1> New Product</h1>
+    <br>
+    <form action="#" th:action="@{/save}" th:object="${product}" method="post">
+       <div class="form-group col-lg-8">
+
+        <label for="name"> Name </label>
+        <input class="form-control" type="text" th:field="*{name}">
+        <label  for="brand"> Brand </label>
+        <input class="form-control" type="text" th:field="*{brand}">
+        <label for="price"> Price  </label>
+        <input class="form-control" type="number" th:field="*{price}">
+        <input class="btn btn-primary" type="submit">
+       </div>
+
+
+    </form>
+</div>
+<div th:replace="index :: footer"></div>
+</body>
+</html>

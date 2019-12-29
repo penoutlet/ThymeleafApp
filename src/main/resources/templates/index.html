@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title >Products</title>
+    <div th:replace="fragments/bootstrap"></div>
+<!--    <link th:href="@{/css/styles.css}" rel="stylesheet" />-->
+    <script th:src="@{/js/script.js}"> </script>
+</head>
+<body>
+<div th:replace="fragments/topnav :: navbar"></div>
+<div class="container" align="center">
+<a href="/new">
+    Create product
+</a>
+    <div class="jumbotron"> Jum</div>
+<table class="table">
+    <thead>
+        <th> Name </th>
+        <th> Brand </th>
+        <th> Price </th>
+
+    </thead>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.brand}"></td>
+        <td th:text="${product.price}"></td>
+    </tr>
+</table>
+</div>
+
+<p style="margin-top: 200px;" align="center" th:fragment="footer">
+    Copyright Sam Jones: 2019
+</p>
+</body>
+</html>
