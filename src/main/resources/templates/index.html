@@ -15,7 +15,7 @@
     <a href="/new">
         Create product
     </a>
-    <table align="center" class="table col-lg-10 table-striped table-dark">
+    <table align="center" class="table col-lg-10 table-striped table-responsive">
 
     <thead>
         <th> Name </th>
@@ -29,8 +29,8 @@
         <td th:text="${product.price}"></td>
         <td>
             <a th:href="@{'/edit/' + ${product.id}}">Edit </a>
-            <br>
-            <a th:href="@{'/delete/' + ${product.id}}">Delete</a>
+
+            <a class="offset-2" th:href="@{'/delete/' + ${product.id}}">Delete</a>
 
         </td>
     </tr>
