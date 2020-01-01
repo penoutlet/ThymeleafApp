@@ -29,8 +29,8 @@
         <td th:text="${product.price}"></td>
         <td>
             <a th:href="@{'/edit/' + ${product.id}}">Edit </a>
-
-            <a class="offset-2" th:href="@{'/delete/' + ${product.id}}">Delete</a>
+            <br>
+            <a th:href="@{'/delete/' + ${product.id}}">Delete</a>
 
         </td>
     </tr>
