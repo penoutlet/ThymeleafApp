@@ -45,14 +45,10 @@ public class ProductController {
     }
 
     @GetMapping("/edit/{id}")
-    public ModelAndView editProduct(@PathVariable("id") Long id){
-        ModelAndView mav = new ModelAndView("editproduct");
-        Product p = service.get(id);
-        mav.addObject("product", p);
+    public String editProduct(@PathVariable("id") Long id, Model model){
 
-//        service.save(p);
-
-        return mav;
+        model.addAttribute("product", service.get(id));
+        return "createproduct";
     }
 
     @GetMapping("/delete/{id}")
