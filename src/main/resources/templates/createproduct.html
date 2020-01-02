@@ -9,10 +9,10 @@
 <body>
 <div th:replace="fragments/topnav :: navbar"></div>
 <div align="center">
-    <h1> New Product</h1>
+    <h1> Create or Update </h1>
     <br>
     <form action="#" th:action="@{/save}" th:object="${product}" method="post">
-       <div class="form-group col-lg-8">
+       <div class="form-group col-lg-6">
            <input type="text" hidden class="form-control" th:field="*{id}" readonly="readonly">
            <label for="name"> Name </label>
         <input class="form-control" type="text" th:field="*{name}">

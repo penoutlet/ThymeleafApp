@@ -11,11 +11,11 @@
 <div th:replace="fragments/topnav :: navbar"></div>
 <div class="container" align="center">
 
-    <div class="jumbotron"> Embrace the CRUD </div>
-    <a href="/new">
+    <div style="background-color: lightgreen; " class="jumbotron col-lg-6 primary"> Embrace the CRUD </div>
+    <a class="btn btn-success" href="/new">
         Create product
     </a>
-    <table align="center" class="table table-striped table-hover">
+    <table style="margin-top:30px; background-color: lightgreen; color: black;" align="center" class="table table-striped table-hover">
 
     <thead class="thead">
         <th> Name </th>
@@ -27,10 +27,10 @@
         <td th:text="${product.name}"></td>
         <td th:text="${product.brand}"></td>
         <td th:text="${product.price}"></td>
-        <td>
-            <a th:href="@{'/edit/' + ${product.id}}">Edit </a>
-            <br>
-            <a th:href="@{'/delete/' + ${product.id}}">Delete</a>
+        <td class="row">
+
+            <a style="margin-right: 30px;" class="btn btn-warning col-md-6" th:href="@{'/edit/' + ${product.id}}">Edit </a>
+            <!--            <a class="btn btn-danger" th:href="@{'/delete/' + ${product.id}}">Delete</a>-->
 
         </td>
     </tr>
