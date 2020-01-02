@@ -27,6 +27,10 @@
            <div th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="text-danger">Name</div>
 
            <input class="btn btn-success" type="submit">
+           <br>           <br>
+
+           <a class="btn btn-danger" th:href="@{'/delete/' + ${product.id}}" th:if="*{id != null}">Delete</a>
+
        </div>
 
     </form>
