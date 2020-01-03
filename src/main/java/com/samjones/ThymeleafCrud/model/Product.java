@@ -1,13 +1,12 @@
 package com.samjones.ThymeleafCrud.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.Negative;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import javax.persistence.*;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
+import java.util.Date;
 
 @Entity
 public class Product {
@@ -22,7 +21,10 @@ public class Product {
     @NotNull(message="Price cannot be blank.")
     @Positive(message = "Number must be positive.")
     private Float price;
-
+    @CreationTimestamp
+    private Date createdAt;
+    @UpdateTimestamp
+    private Date updatedAt;
 
     public Product() {
     }
@@ -57,5 +59,25 @@ public class Product {
 
     public void setPrice(Float price) {
         this.price = price;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        if(createdAt==null){
+            System.out.println("Created at is null");
+            return;
+        }
+        this.createdAt = createdAt;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }
